@@ -1,0 +1,130 @@
+
+
+.device-manager {
+  max-width: 900px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.section-title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.device-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+}
+
+.device-table th, .device-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.device-table th {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+}
+
+.device-table tr:hover {
+  background: var(--glass-border);
+}
+
+.empty-message {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.device-code {
+  font-size: 1.1em;
+  margin: 15px 0;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  color: var(--text-primary);
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+  font-size: 16px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px 15px;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-gradient);
+}
+
+.btn-secondary {
+  padding: 10px 15px;
+  background: var(--secondary-gradient);
+  border: none;
+  border-radius: 8px;
+  color: var(--text-light);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-gradient);
+}
+
+.status-message {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.status-message.success {
+  color: var(--success-color);
+}
+
+.status-message.error {
+  color: var(--danger-color);
+}

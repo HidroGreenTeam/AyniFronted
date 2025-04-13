@@ -1,0 +1,45 @@
+<div class="report-container">
+    <h2>Crop Reports</h2>
+  
+    
+    <div class="crop-selector">
+      <label for="cropSelect">Select Crop:</label>
+      <select
+        id="cropSelect"
+        [(ngModel)]="selectedCropId"
+        class="dropdown"
+        (change)="updateReports()"
+      >
+        <option *ngFor="let crop of crops" [value]="crop.id">
+          {{ crop.cropName }}
+        </option>
+      </select>
+    </div>
+  
+    
+    <div *ngIf="soilChartOptions" class="chart-section">
+      <h3>Soil Analysis Over Time</h3>
+      <apx-chart
+        [series]="soilChartOptions.series"
+        [chart]="soilChartOptions.chart"
+        [xaxis]="soilChartOptions.xaxis"
+        [dataLabels]="soilChartOptions.dataLabels"
+        [stroke]="soilChartOptions.stroke"
+        [title]="soilChartOptions.title"
+      ></apx-chart>
+    </div>
+  
+    
+    <div *ngIf="weatherChartOptions" class="chart-section">
+      <h3>Weather Data Over Time</h3>
+      <apx-chart
+        [series]="weatherChartOptions.series"
+        [chart]="weatherChartOptions.chart"
+        [xaxis]="weatherChartOptions.xaxis"
+        [dataLabels]="weatherChartOptions.dataLabels"
+        [stroke]="weatherChartOptions.stroke"
+        [title]="weatherChartOptions.title"
+      ></apx-chart>
+    </div>
+  </div>
+  

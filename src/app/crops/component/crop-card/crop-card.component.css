@@ -1,0 +1,89 @@
+:root {
+  --color-primary: #d6f8e6;
+  --color-secondary: #a3d9c3;
+  --color-active: #0ba439;
+  --color-active-light: #e6ffe9;
+  --color-text: #333;
+  --color-text-secondary: #666;
+  --color-border: #ddd;
+
+  --color-light: #f1f1f1;
+  --color-white: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.crop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--);
+  border-radius: 12px;
+  width: 180px;
+  padding-bottom: 1rem;
+  height: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.crop-card.selected {
+  background-color: var(--color-active-light);
+}
+
+.crop-card img {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.crop-info {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.crop-info h3 {
+  font-size: 0.95rem;
+  text-align: center;
+  color: #333;
+}
+
+.crop-info p {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+.delete-crop-card {
+  background-color: var(--color-white);
+  translate: 60px -160px;
+  color: var(--color-active);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-crop-card:hover {
+  background-color: var(--color-active-light);
+}
+
+@media (max-width: 768px) {
+  .crop-card {
+    width: 45vw;
+    max-width: 180px;
+  }
+}

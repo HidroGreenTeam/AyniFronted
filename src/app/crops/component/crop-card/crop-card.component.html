@@ -1,0 +1,19 @@
+<div
+  class="crop-card"
+  [ngClass]="{ selected: isSelected }"
+  (click)="selectCrop()"
+>
+  <img [src]="crop.imageUrl" alt="{{ crop.cropName }}" class="crop-image" />
+  <div class="crop-info">
+    <h3>{{ crop.cropName }}</h3>
+    <p><i class="fas fa-seedling"></i> {{ crop.area }} hectares</p>
+    <p>
+      <i class="fas fa-calendar-alt"></i>
+      {{ calculateCropAge(crop.plantingDate) }}
+    </p>
+  </div>
+
+  <button class="delete-crop-card" (click)="deleteCrop($event, crop.id)">
+    <i class="fas fa-trash-alt"></i>
+  </button>
+</div>

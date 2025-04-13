@@ -1,0 +1,16 @@
+<header>
+  <div class="header-left">
+    <button class="menu-btn" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  <div class="header-right">
+    <a class="user-info" routerLink="/profile">
+      <img [src]="userState.userImage() || 'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg'" alt="User Avatar" />
+      <span>{{ userState.username() }}</span>
+    </a>
+    <a routerLink="/notifications" class="header-icon">
+      <i class="fas fa-bell"></i>
+    </a>
+  </div>
+</header>

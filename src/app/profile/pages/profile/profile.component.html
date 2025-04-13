@@ -1,0 +1,55 @@
+<div class="profile">
+   
+  
+    <h2>User Profile</h2>
+  
+    
+    <div class="profile-image-container">
+        <img
+          [src]="tempImageUrl || farmer.imageUrl || 'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg'"
+          alt="User's Profile Picture"
+          class="profile-picture"
+        />
+        @if (editMode) {
+          <button type="button" class="edit-icon" aria-label="Edit Profile Picture" (click)="updateImage()">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+        }
+      </div>
+  
+    
+    @if (isLoading) {
+        <div class="loading-bar-container"><div class="loading-bar"></div></div>
+      }
+  
+    
+    @if (!editMode) {
+        <div class="profile-info">
+          <p><strong>Name:</strong> {{ farmer.username }}</p>
+          <p><strong>Email:</strong> {{ farmer.email }}</p>
+          <p><strong>Phone:</strong> {{ farmer.phoneNumber || 'Not specified' }}</p>
+          <button class="primary-button" (click)="toggleEditMode()">Edit Profile</button>
+        </div>
+      }
+    
+  
+    
+    @if (editMode) {
+        <form class="profile-form" (ngSubmit)="updateFarmer()">
+          <label for="username">Name</label>
+          <input [(ngModel)]="farmer.username" name="username" id="username" type="text" required />
+    
+          <label for="email">Email</label>
+          <input [(ngModel)]="farmer.email" name="email" id="email" type="email" required />
+    
+          <label for="phoneNumber">Phone</label>
+          <input [(ngModel)]="farmer.phoneNumber" name="phoneNumber" id="phoneNumber" type="tel" />
+    
+          <div class="form-buttons">
+            <button type="submit" class="primary-button">Save Changes</button>
+            <button type="button" class="cancel-button" (click)="toggleEditMode()">Cancel</button>
+          </div>
+        </form>
+      }
+  </div>
+  

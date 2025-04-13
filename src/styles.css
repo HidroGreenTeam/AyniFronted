@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+:root {
+  --color-primary: #81c784;
+  --color-secondary: #aed581;
+  --color-accent: #4caf50;
+  --color-accent-light: #e8f5e9;
+
+  --color-active: #2e7d32;
+  --color-active-light: #c8e6c9;
+
+  --color-text: #263238;
+  --color-text-secondary: #607d8b;
+  --color-border: #cfd8dc;
+
+  --color-light: #f1f8e9;
+  --color-white: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.12);
+  --color-danger: #e57373;
+
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --primary-gradient: linear-gradient(135deg, #81c784, #aed581);
+  --secondary-gradient: linear-gradient(135deg, #4caf50, #81c784);
+  --danger-color: #e57373;
+  --success-color: #4caf50;
+  --text-primary: #263238;
+  --text-secondary: #607d8b;
+  --text-light: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --shadow: rgba(0, 0, 0, 0.2);
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-light: #fff;
+  --success-color: #4caf50;
+  --danger-color: #e57373;
+  --primary-gradient: linear-gradient(135deg, #4caf50, #81c784);
+  --secondary-gradient: linear-gradient(135deg, #388e3c, #66bb6a);
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-primary: #81c784;
+  --border-radius: 15px;
+  --padding: 20px;
+  --transition: all 0.3s ease;
+}
+
+.device-list::-webkit-scrollbar,
+.crops-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.device-list::-webkit-scrollbar-thumb,
+.crops-grid::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+.device-list::-webkit-scrollbar-thumb:hover,
+.crops-grid::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary);
+}
+
+
+.loading-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; 
+  background-color: rgba(255, 255, 255, 0.7); 
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.loading-bar {
+  width: 50%;
+  height: 4px;
+  background-color: #81c784; 
+  animation: loadBar 2s infinite;
+}
+
+@keyframes loadBar {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 100%;
+  }
+}

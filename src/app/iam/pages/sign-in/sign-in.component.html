@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="left">
+    <div class="marketing-content">
+      <h1>Automate your field, maximize your harvest</h1>
+      <p>
+        Schedule irrigation, monitor soil health, and optimize yield
+        effortlessly.
+      </p>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2 class="title">LOG IN</h2>
+
+        <div class="form-group">
+          <label for="username">Email Address</label>
+          <input
+            type="email"
+            id="username"
+            formControlName="username"
+            placeholder="user@agromax.com"
+            class="input-field"
+          />
+
+          @if (
+            form.controls["username"].invalid &&
+            form.controls["username"].touched
+          ) {
+            <div class="error">Please enter a valid email address.</div>
+          }
+        </div>
+
+        <div class="form-group password-group">
+          <label for="password">Password</label>
+          <div class="password-input-wrapper">
+            <input
+              id="password"
+              [type]="passwordFieldType()"
+              formControlName="password"
+              placeholder="Enter your password"
+              class="input-field"
+            />
+            <i
+              class="fa"
+              [ngClass]="
+                passwordFieldType() === 'password' ? 'fa-eye-slash' : 'fa-eye'
+              "
+              (click)="togglePasswordVisibility()"
+            ></i>
+          </div>
+
+          @if (
+            form.controls["password"].invalid &&
+            form.controls["password"].touched
+          ) {
+            <div class="error">Password is required.</div>
+          }
+        </div>
+
+        <div class="actions">
+          <a (click)="forgotPassword()" class="forgot-password"
+            >Forgot your password?</a
+          >
+        </div>
+
+        <button type="submit" class="btn primary-btn" [disabled]="form.invalid">
+          LOG IN
+        </button>
+
+        <div class="separator">
+          <span>or</span>
+        </div>
+
+        <button type="button" class="btn google-btn">
+          <i class="fab fa-google"></i> Log in with Google
+        </button>
+      </form>
+
+      <div class="register-link">
+        <p>Don't have an account? <a (click)="register()">Sign Up</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="add-crop-container">
+  <h2>Add New Crop</h2>
+  <form
+    #cropForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    enctype="multipart/form-data"
+  >
+    <label for="cropName">Crop Name:</label>
+    <input
+      type="text"
+      id="cropName"
+      [(ngModel)]="crop.cropName"
+      name="cropName"
+      required
+    />
+
+    <label for="irrigationType">Irrigation Type:</label>
+    <select
+      id="irrigationType"
+      [(ngModel)]="crop.irrigationType"
+      name="irrigationType"
+      required
+    >
+      <option value="Manual">Manual</option>
+      <option value="Automatic">Automatic</option>
+    </select>
+
+    <label for="area">Area (hectares):</label>
+    <input
+      type="number"
+      id="area"
+      [(ngModel)]="crop.area"
+      name="area"
+      required
+    />
+
+    <label for="plantingDate">Planting Date:</label>
+    <input
+      type="date"
+      id="plantingDate"
+      [(ngModel)]="crop.plantingDate"
+      name="plantingDate"
+      required
+    />
+
+    <label for="cropImage">Crop Image:</label>
+    <input
+      type="file"
+      id="cropImage"
+      (change)="onFileSelected($event)"
+      required
+    />
+
+    <button type="submit">Add Crop</button>
+  </form>
+</div>

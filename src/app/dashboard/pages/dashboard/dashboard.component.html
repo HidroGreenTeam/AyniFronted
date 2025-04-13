@@ -1,0 +1,61 @@
+<div class="dashboard-wrapper">
+  
+  <div class="crops-info">
+    <div class="crops-grid">
+      
+      @for (crop of crops(); track crop.id) {
+        <app-crop
+          [crop]="crop"
+          [isSelected]="selectedCrop()?.id === crop.id"
+          (cropSelected)="selectCrop($event)"
+          (cropDeleted)="deleteCrop($event)"
+        >
+        </app-crop>
+      }
+      
+      <button class="add-crop-button" routerLink="/add-crop">
+        <i class="fas fa-plus"></i> Add Crop
+      </button>
+    </div>
+
+    
+    <div class="date-picker">
+      <i class="fas fa-calendar-alt"></i>
+      <p>{{ currentDate | date: 'dd/MM/yy' }}</p>
+    </div>
+
+    
+    @if (selectedCrop()) {
+      <div class="info-cards">
+        @for (metric of currentMetrics(); track metric.description) {
+          <div class="info-card">
+            <div class="icon-and-value">
+              <i [class]="getIconClass(metric.description)"></i>
+              <p>{{ metric.value }}{{ metric.unit }}</p>
+            </div>
+            <div class="description">
+              <h4>{{ metric.description }}</h4>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  
+  @if (selectedCrop()) {
+    <div class="sidebar">
+      <div class="devices">
+        <h3>Devices</h3>
+        <div class="devices-status">
+          @for (device of deviceStatuses(); track device.status) {
+            <div class="device-item">
+              <span class="status-indicator {{ device.indicatorClass }}"></span>
+              {{ device.label }}: {{ device.count }}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

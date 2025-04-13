@@ -1,0 +1,63 @@
+<div class="device-manager">
+ 
+  <div class="glass-card">
+    <h3 class="section-title">Devices List</h3>
+    <div class="table-container">
+      <table *ngIf="devices.length > 0" class="device-table">
+        <thead>
+          <tr>
+            <th>Device Code</th>
+            <th>Crop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let device of devices">
+            <td>{{ device.deviceCode }}</td>
+            <td>{{ getName(device.cropId) }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="devices.length === 0" class="empty-message">
+        No devices available.
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="glass-card">
+    <h3 class="section-title">Generate Device Code</h3>
+    <button (click)="generateDevice()" class="btn-primary">Generate Device</button>
+    <div *ngIf="device">
+      <p class="device-code"><strong>Device Code:</strong> {{ device.deviceCode }}</p>
+      <button (click)="copyToClipboard(device.deviceCode)" class="btn-secondary">
+        Copy to Clipboard
+      </button>
+    </div>
+    <p *ngIf="generateDeviceMessage" class="status-message">
+      {{ generateDeviceMessage }}
+    </p>
+  </div>
+
+  <div class="glass-card">
+    <h3 class="section-title">Connect Device to Crop</h3>
+    <select [(ngModel)]="selectedCropId" class="dropdown">
+      <option *ngFor="let crop of crops" [value]="crop.id">
+        {{ crop.cropName }}
+      </option>
+    </select>
+    <div class="device-code-input">
+       <input 
+        id="deviceCodeInput" 
+        [(ngModel)]="deviceCodeInput" 
+        class="input-field" 
+        placeholder="Enter device code"
+      />
+    </div>
+    <button (click)="connectDeviceToCrop()" class="btn-primary">
+      Connect Device
+    </button>
+    <p *ngIf="connectDeviceMessage" class="status-message">
+      {{ connectDeviceMessage }}
+    </p>
+  </div>
+</div>

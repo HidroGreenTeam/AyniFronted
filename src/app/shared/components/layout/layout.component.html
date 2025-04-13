@@ -1,0 +1,16 @@
+<div class="main-container">
+  <app-header (menuClicked)="toggleSidebar()"></app-header>
+  <div
+    class="overlay"
+    [class.show]="isSidebarVisible"
+    (click)="toggleSidebar()"
+  ></div>
+  <app-sidebar
+    [isVisible]="isSidebarVisible"
+    (menuClicked)="toggleSidebar()"
+  ></app-sidebar>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

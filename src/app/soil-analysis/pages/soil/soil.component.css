@@ -1,0 +1,213 @@
+
+.shared-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: var(--padding);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px var(--shadow);
+  text-align: center;
+}
+
+.soil-analysis-container,
+.weather-history,
+.soil-history {
+  @extend .shared-container;
+  background: var(--glass-bg);
+}
+
+/* Títulos */
+h2,
+h3 {
+  font-weight: bold;
+  color: var(--text-primary);
+  text-shadow: 1px 1px 2px var(--color-shadow);
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+/* Selector de Cultivo */
+.crop-selector {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+/* Dropdown */
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Botones */
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: var(--secondary-gradient);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #2196f3, #64b5f6);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+}
+
+.btn-back {
+  background: linear-gradient(135deg, #e57373, #ef9a9a);
+  color: var(--text-light);
+}
+
+.btn-back:hover {
+  background: linear-gradient(135deg, #c62828, #e57373);
+}
+
+/* Contenedor de Gráficos */
+.chart-container {
+  margin-top: 30px;
+}
+
+.pie-chart-wrapper {
+  padding: var(--padding);
+  background: var(--glass-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px var(--shadow);
+  border: 1px solid var(--glass-border);
+}
+
+/* Mensajes de Estado */
+.status-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-message.success {
+  color: var(--success-color);
+}
+
+.status-message.error {
+  color: var(--danger-color);
+}
+
+/* Tablas */
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--glass-bg);
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.table-container th {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+}
+
+.table-container tr:hover {
+  background: var(--glass-border);
+}
+
+/* Historial */
+.history-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.history-table th {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+}
+
+.history-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin: 10px 0;
+  transition: var(--transition);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}

@@ -1,0 +1,55 @@
+<aside id="sidebar" class="sidebar" [class.visible]="isVisible">
+  <button class="close-btn" (click)="closeSidebar()">&times;</button>
+
+  <div class="app-logo">
+    <img src="/logo.png" alt="App Logo" />
+    <span class="app-name">Ayni</span>
+  </div>
+
+  <ul class="menu-list">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li>
+      <a routerLink="/devices" routerLinkActive="active">
+        <i class="fas fa-wifi"></i>
+        <span>Devices</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/irrigation" routerLinkActive="active">
+        <i class="fas fa-tint"></i>
+        <span>Irrigation</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/soil" routerLinkActive="active">
+        <i class="fas fa-seedling"></i>
+        <span>Soil Analysis</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/report" routerLinkActive="active">
+        <i class="fas fa-chart-line"></i>
+        <span>Report</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/settings" routerLinkActive="active">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="logout-container">
+    <button class="logout-btn" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </button>
+  </div>
+</aside>

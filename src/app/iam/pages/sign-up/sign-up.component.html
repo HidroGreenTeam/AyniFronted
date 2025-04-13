@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="left">
+    <div class="marketing-content">
+      <h1>Automate your field, maximize your harvest</h1>
+      <p>
+        Schedule irrigation, monitor soil health, and optimize yield
+        effortlessly.
+      </p>
+    </div>
+  </div>
+
+  <div class="right">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 class="title">REGISTER</h2>
+
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input
+          id="fullname"
+          formControlName="fullname"
+          placeholder="Benjamin Castillo"
+          class="input-field"
+          required
+        />
+        <div
+          class="error"
+          *ngIf="
+            form.controls['fullname'].invalid &&
+            form.controls['fullname'].touched
+          "
+        >
+          Full name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="benjamin@bookio.io"
+          class="input-field"
+          required
+        />
+        <div
+          class="error"
+          *ngIf="
+            form.controls['email'].invalid && form.controls['email'].touched
+          "
+        >
+          Please enter a valid email.
+        </div>
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">Password</label>
+        <div class="password-input-wrapper">
+          <input
+            id="password"
+            [type]="passwordFieldType()"
+            formControlName="password"
+            placeholder="************"
+            class="input-field"
+            required
+          />
+          <i
+            class="fa"
+            [ngClass]="
+              passwordFieldType() === 'password' ? 'fa-eye-slash' : 'fa-eye'
+            "
+            (click)="togglePasswordVisibility()"
+          ></i>
+        </div>
+        <div
+          class="error"
+          *ngIf="
+            form.controls['password'].invalid &&
+            form.controls['password'].touched
+          "
+        >
+          Password is required.
+        </div>
+      </div>
+
+      <div class="terms-group">
+        <input type="checkbox" id="terms" formControlName="terms" />
+        <label for="terms"
+          >I agree with <a href="#">Terms & Conditions</a>.</label
+        >
+        <div
+          class="error"
+          *ngIf="
+            form.controls['terms'].invalid && form.controls['terms'].touched
+          "
+        >
+          You must accept the terms and conditions.
+        </div>
+      </div>
+
+      <button type="submit" class="btn primary-btn" [disabled]="form.invalid">
+        Register
+      </button>
+
+      <div class="separator">
+        <span>or</span>
+      </div>
+
+      <button type="button" class="btn google-btn">
+        <i class="fab fa-google"></i> Register using email address
+      </button>
+
+      <div class="register-link">
+        <p>Already have an account? <a (click)="signIn()">Log In</a></p>
+      </div>
+    </form>
+  </div>
+</div>

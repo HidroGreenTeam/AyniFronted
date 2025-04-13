@@ -1,0 +1,39 @@
+<div class="irrigation-container">
+  <h2>Irrigation Management</h2>
+
+  
+  <div class="crop-selector">
+    <label for="cropSelect">Select Crop:</label>
+    <select
+      id="cropSelect"
+      [(ngModel)]="selectedCropId"
+      class="dropdown"
+      (change)="loadSoilAndWeatherData()"
+    >
+      <option *ngFor="let crop of crops" [value]="crop.id">
+        {{ crop.cropName }}
+      </option>
+    </select>
+  </div>
+
+  
+  <div *ngIf="lastSoilAnalysis || lastWeatherReport" class="info-section">
+  
+
+    <div *ngIf="lastWeatherReport" class="weather-info">
+      <h3>Weather Data</h3>
+      <p><strong>Temperature:</strong> {{ lastWeatherReport.temperature }}°C</p>
+      <p><strong>Humidity:</strong> {{ lastWeatherReport.humidity }}%</p>
+    </div>
+  </div>
+
+  
+  <button (click)="irrigateCrop()" class="btn-primary">
+    Irrigate Crop
+  </button>
+
+  
+  <p *ngIf="statusMessage" class="status-message">
+    {{ statusMessage }}
+  </p>
+</div>
